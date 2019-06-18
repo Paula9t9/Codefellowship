@@ -11,5 +11,8 @@ public class CodefellowshipController {
         return "codefellowship";
     }
 
-
+    @GetMapping("/signup")
+    public String getSignup(){
+        return "signup";
+    }
 }
