@@ -46,7 +46,12 @@ public class CfUserController {
 
     @PostMapping("/logout")
     public RedirectView logout(){
-        return new RedirectView("/");
+        return new RedirectView("/logout_success");
+    }
+
+    @GetMapping("/logout_success")
+    public String getLogoutSuccess(){
+        return "logout_success";
     }
 
 }
