@@ -44,4 +44,9 @@ public class CfUserController {
         return "login";
     }
 
+    @PostMapping("/logout")
+    public RedirectView logout(){
+        return new RedirectView("/");
+    }
+
 }
