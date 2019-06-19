@@ -2,11 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rawr</title>
+    <title>My Profile</title>
 </head>
 <body>
-<h1>Codefellowship</h1>
-<h3>Welcome, <span th:text="${principal.name}"></span>!</h3>
-<a th:href="@{'/logout'}" method="POST">Logout</a>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
+</header>
+<h4>Here's your profile:</h4>
+<p>Username: <span th:text="${currentUser.username}"></span></p>
+<p>First Name: <span th:text="${currentUser.firstName}"></span></p>
+<p>Last Name: <span th:text="${currentUser.lastName}"></span></p>
+<p>Date of Birth: <span th:text="${currentUser.dateOfBirth}"></span></p>
+<p>Bio: <span th:text="${currentUser.bio}"></span></p>
+
+<h1>Your Posts:</h1>
+<h2>Create a New Post:</h2>
+<form action="/posts" method="POST">
+    <textarea name="body" rows="5" cols="33"></textarea>
+    <input type="submit" />
+</form>
+
+<ul>
+    <li th:each="post : ${posts}">
+        <p>Created by: [[${post.createdBy.username}]]</p>
+        <p>Posted on: [[${post.createdAt}]]</p>
+        <p>[[${post.body}]]</p>
+    </li>
+</ul>
+
+
 </body>
 </html>

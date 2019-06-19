@@ -2,8 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rawr</title>
+    <title>Codefellowship</title>
 </head>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${user})"></div>
+</header>
 <body>
 <h1>Codefellowship</h1>
 <h3>Welcome!</h3>

@@ -23,15 +23,12 @@ public class CfUserController {
     @Autowired
     PasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping("/")
-    public String getHome(Principal p, Model m){
-        m.addAttribute("principal", p);
-        return "codefellowship";
-    }
 
     @PostMapping("/users")
-    public RedirectView createUser(String username, String password){
-        CfUser newCfUser = new CfUser(username, bCryptPasswordEncoder.encode(password));
+    public RedirectView createUser(String username, String password, String firstName, String lastName,
+            String dateOfBirth, String bio) {
+        CfUser newCfUser = new CfUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName,
+                dateOfBirth, bio);
         cfUserRepository.save(newCfUser);
         // Log in the user after the new account is created
         Authentication authentication = new UsernamePasswordAuthenticationToken(newCfUser, null, new ArrayList<>());
@@ -52,6 +49,19 @@ public class CfUserController {
     @GetMapping("/logout_success")
     public String getLogoutSuccess(){
         return "logout_success";
+    }
+
+    @GetMapping("/signup")
+    public String getSignup(){
+        return "signup";
+    }
+
+    @GetMapping("/user_profile")
+    public String getProfile(Principal p, Model m){
+        CfUser currentUser = cfUserRepository.findByUsername(p.getName());
+                m.addAttribute("currentUser", currentUser);
+                m.addAttribute("posts", currentUser.postList);
+        return "user_profile";
     }
 
 }

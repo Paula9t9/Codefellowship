@@ -7,8 +7,23 @@
 <body>
 <h1>Please enter your desired information: </h1>
 <form action="/users" method="POST">
-    <input name="username" />
-    <input name="password" />
+    Username:
+    <input name="username" placeholder="Username"/>
+    <br>
+    Password:
+    <input name="password" type="password" placeholder="Password"/>
+    <br>
+    First Name:
+    <input name="firstName" placeholder="First Name"/>
+    <br>
+    Last Name:
+    <input name="lastName" placeholder="Last Name"/>
+    <br>
+    Date of Birth:
+    <input name="dateOfBirth" type="date" placeholder="Date of Birth"/>
+    <br>
+    Bio:
+    <textarea name="bio" rows="5" cols="33"></textarea>
     <input type="submit" />
 </form>
 </body>
