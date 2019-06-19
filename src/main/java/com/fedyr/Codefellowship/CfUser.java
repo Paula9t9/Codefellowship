@@ -3,12 +3,10 @@ package com.fedyr.Codefellowship;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class CfUser implements UserDetails {
@@ -17,16 +15,22 @@ public class CfUser implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
 
+    @Column(unique = true)
     String username;
+
     String password;
     String firstName;
     String lastName;
+
     // Storing as a String because our use case doesn't require a Date right now.
     // Plus, form is already giving it to us as a String, so no point in parsing it in/out of String for storage
     // when we will display it as a String anyway.
     // We can parse it to a Date later if/where we need it.
     String dateOfBirth;
     String bio;
+
+    @OneToMany
+    List<Post> postList;
 
 
     public CfUser() {}
