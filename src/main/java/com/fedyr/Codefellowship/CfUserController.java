@@ -59,4 +59,16 @@ public class CfUserController {
         return "logout_success";
     }
 
+    @GetMapping("/signup")
+    public String getSignup(){
+        return "signup";
+    }
+
+    @GetMapping("/user_profile")
+    public String getProfile(Principal p, Model m){
+        CfUser currentUser = cfUserRepository.findByUsername(p.getName());
+                m.addAttribute("currentUser", currentUser);
+        return "user_profile";
+    }
+
 }
