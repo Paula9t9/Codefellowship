@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class CfUserController {
@@ -30,8 +33,10 @@ public class CfUserController {
     }
 
     @PostMapping("/users")
-    public RedirectView createUser(String username, String password){
-        CfUser newCfUser = new CfUser(username, bCryptPasswordEncoder.encode(password));
+    public RedirectView createUser(String username, String password, String firstName, String lastName,
+            String dateOfBirth, String bio) {
+        CfUser newCfUser = new CfUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName,
+                dateOfBirth, bio);
         cfUserRepository.save(newCfUser);
         // Log in the user after the new account is created
         Authentication authentication = new UsernamePasswordAuthenticationToken(newCfUser, null, new ArrayList<>());
