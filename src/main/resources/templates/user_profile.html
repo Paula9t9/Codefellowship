@@ -23,9 +23,9 @@
 
 <ul>
     <li th:each="post : ${posts}">
-        <p>Created by: <span th:text="post.createdBy.username"></span>
-        <p>Posted on: <span th:text="post.createdAt"></span></p>
-        <p><span th:text="post.body"></span></p>
+        <p>Created by: [[${post.createdBy.username}]]</p>
+        <p>Posted on: [[${post.createdAt}]]</p>
+        <p>[[${post.body}]]</p>
     </li>
 </ul>
 
