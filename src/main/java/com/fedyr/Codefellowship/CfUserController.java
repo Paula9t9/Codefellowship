@@ -65,6 +65,7 @@ public class CfUserController {
     public String getProfile(Principal p, Model m){
         CfUser currentUser = cfUserRepository.findByUsername(p.getName());
                 m.addAttribute("currentUser", currentUser);
+                m.addAttribute("posts", currentUser.postList);
         return "user_profile";
     }
 
