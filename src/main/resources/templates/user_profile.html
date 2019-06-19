@@ -5,8 +5,9 @@
     <title>My Profile</title>
 </head>
 <body>
-<h1>Codefellowship</h1>
-<h3>Welcome, <span th:text="${currentUser.firstName}"></span>!</h3>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
+</header>
 <h4>Here's your profile:</h4>
 <p>Username: <span th:text="${currentUser.username}"></span></p>
 <p>First Name: <span th:text="${currentUser.firstName}"></span></p>
@@ -29,7 +30,6 @@
     </li>
 </ul>
 
-<p>You can click <a th:href="@{'/'}" method="GET">here</a> to return to the home page.</p>
-<a th:href="@{'/logout'}" method="POST">Logout</a>
+
 </body>
 </html>

@@ -23,11 +23,6 @@ public class CfUserController {
     @Autowired
     PasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping("/")
-    public String getHome(Principal p, Model m){
-        m.addAttribute("principal", p);
-        return "codefellowship";
-    }
 
     @PostMapping("/users")
     public RedirectView createUser(String username, String password, String firstName, String lastName,
