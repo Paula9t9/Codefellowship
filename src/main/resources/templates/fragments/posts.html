@@ -1,0 +1,10 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<ul th:fragment="postList(posts)">
+    <li th:each="post : ${posts}">
+        <p>Created by: [[${post.createdBy.username}]]</p>
+        <p>Posted on: [[${post.createdAt}]]</p>
+        <p>[[${post.body}]]</p>
+        <a th:href="@{'/public_profile/' + ${post.createdBy.id}}" >See
+            <span th:text="${post.createdBy.username}"></span>'s profile</a>
+    </li>
+</ul>

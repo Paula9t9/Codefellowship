@@ -74,6 +74,16 @@ public class CodefellowshipController {
         return new RedirectView("/discover");
     }
 
+    @GetMapping("/public_profile/{id}")
+    public String getPublicProfile(@PathVariable Long id, Principal p, Model m){
+        CfUser currentUser = cfUserRepository.findByUsername(p.getName());
+        CfUser viewedUser = cfUserRepository.findById(id).get();
+        m.addAttribute("currentUser", currentUser);
+        m.addAttribute("posts", currentUser.postList);
+        m.addAttribute("user", viewedUser);
+        return "public_profile";
+    }
+
 
 
 }

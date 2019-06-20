@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Public Profile</title>
+</head>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
+</header>
+<body>
+    <h4><span th:text="${user.username}"></span>'s Profile:</h4>
+    <p>First Name: <span th:text="${user.firstName}"></span></p>
+    <p>Last Name: <span th:text="${user.lastName}"></span></p>
+    <p>Bio: <span th:text="${user.bio}"></span></p>
+
+    <form method="POST" th:action="'/follow/' + ${user.id}" >
+        <button type="submit">Follow</button>
+    </form>
+
+    <h1><span th:text="${user.username}"></span>'s Posts:</h1>
+
+    <div th:replace="fragments/posts :: postList(${user.postList})"></div>
+
+</body>
+</html>
