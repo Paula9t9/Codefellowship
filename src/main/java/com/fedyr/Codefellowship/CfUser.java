@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class CfUser implements UserDetails {
@@ -28,6 +29,13 @@ public class CfUser implements UserDetails {
     // We can parse it to a Date later if/where we need it.
     String dateOfBirth;
     String bio;
+
+    @ManyToMany
+    Set<CfUser> following;
+
+    //TODO: refactor to use just following.
+    @ManyToMany
+    Set<CfUser> followers;
 
     @OneToMany(mappedBy = "createdBy")
     List<Post> postList;
@@ -80,6 +88,18 @@ public class CfUser implements UserDetails {
         return true;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public Set<CfUser> getFollowing() {
+        return following;
+    }
+
+    public Set<CfUser> getFollowers() {
+        return followers;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -118,5 +138,13 @@ public class CfUser implements UserDetails {
 
     public void setPostList(List<Post> postList) {
         this.postList = postList;
+    }
+
+    public void setFollowing(Set<CfUser> following) {
+        this.following = following;
+    }
+
+    public void setFollowers(Set<CfUser> followers) {
+        this.followers = followers;
     }
 }
