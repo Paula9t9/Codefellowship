@@ -49,7 +49,7 @@ public class CodefellowshipController {
         CfUser currentUser = cfUserRepository.findByUsername(p.getName());
 
         List<CfUser> possibleFollows = (List) cfUserRepository.findAll();
-        possibleFollows.remove(currentUser.following);
+        possibleFollows.removeAll(currentUser.following);
         possibleFollows.remove(currentUser);
 
         m.addAttribute("currentUser", currentUser);
