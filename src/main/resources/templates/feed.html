@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+</head>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
+</header>
+<body>
+    <h1>Here are the posts from the people you follow:</h1>
+    <div th:replace="fragments/posts :: postList(${posts})"></div>
+</body>
+</html>

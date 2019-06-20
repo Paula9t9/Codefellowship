@@ -1,0 +1,10 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<ul th:fragment="userList(users)">
+    <li th:each="user : ${users}">
+        <p><span th:text="${user.username}"></span></p>
+        <p><span th:text="${user.bio}"></span></p>
+        <form method="POST" th:action="'/follow/' + ${user.id}" >
+            <button type="submit">Follow</button>
+        </form>
+    </li>
+</ul>

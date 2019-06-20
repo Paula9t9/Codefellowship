@@ -22,13 +22,7 @@
     <input type="submit" />
 </form>
 
-<ul>
-    <li th:each="post : ${posts}">
-        <p>Created by: [[${post.createdBy.username}]]</p>
-        <p>Posted on: [[${post.createdAt}]]</p>
-        <p>[[${post.body}]]</p>
-    </li>
-</ul>
+<div th:replace="fragments/posts :: postList(${posts})"></div>
 
 
 </body>

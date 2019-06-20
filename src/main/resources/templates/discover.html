@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Discover</title>
+</head>
+<body>
+    <header>
+        <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
+    </header>
+<!--    TODO: Add if to show alternate message if no one left to follow -->
+    <div th:replace="fragments/users :: userList(${possibleFollows})"></div>
+</body>
+</html>
