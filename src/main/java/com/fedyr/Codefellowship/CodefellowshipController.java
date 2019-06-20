@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -84,6 +85,22 @@ public class CodefellowshipController {
         return "public_profile";
     }
 
+    @GetMapping("/feed")
+    public String getFeed(Principal p, Model m){
+        CfUser currentUser = cfUserRepository.findByUsername(p.getName());
+        List<Post> posts = new ArrayList<>();
 
+        for (CfUser user : currentUser.following) {
+            posts.addAll(user.postList);
+        }
+
+        if(posts.isEmpty()){
+            posts.add(new Post("No posts to display", currentUser));
+        }
+
+        m.addAttribute("currentUser", currentUser);
+        m.addAttribute("posts", posts);
+        return "feed";
+    }
 
 }
