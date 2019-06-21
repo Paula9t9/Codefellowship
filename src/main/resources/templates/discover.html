@@ -10,6 +10,7 @@
     <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
 </header>
 <body>
+<h3>Here are the folks you can follow: </h3>
 <!--    TODO: Add if to show alternate message if no one left to follow -->
     <div th:replace="fragments/users :: userList(${possibleFollows})"></div>
 </body>
