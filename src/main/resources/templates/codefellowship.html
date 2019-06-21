@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Codefellowship</title>
 </head>
 <header>
@@ -9,14 +11,12 @@
 </header>
 <body>
 <h1>Codefellowship</h1>
-<h3>Welcome!</h3>
-<p>This is a place for Codefellows students and alumni to hang out and support each other.</p>
+<p class="description">This is a place for Codefellows students and alumni to hang out and support each other.</p>
 <p>If you haven't done so already, be sure to <a th:href="@{'/login'}" method="GET">sign in</a>.</p>
 <p>If you're already logged in, be sure to check out your <a th:href="@{'/user_profile'}" method="GET">profile
     page</a>.</p>
 <p>You can find new people to follow on the discovery page <a th:href="@{'/discover'}" method="GET">here</a>.</p>
 <p>You can see all the posts by people you follow <a th:href="@{'/feed'}" method="GET">here</a>.</p>
 <p>And if you need to create a new account, you can do so <a th:href="@{'/signup'}" method="GET">here</a>.</p>
-<a th:href="@{'/logout'}" method="POST">Logout</a>
 </body>
 </html>

@@ -1,0 +1,56 @@
+
+/* Borrowed heavily from previous project: https://github.com/Paula9t9/cookie-stand/blob/master/css/style.css */
+
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 20px;
+}
+
+header {
+  background-color: #4ca24f;
+  width: 100%;
+}
+
+.nav {
+  padding: 30px;
+}
+
+.nav li {
+    display: inline-block;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: whitesmoke;
+  vertical-align: top;
+}
+
+
+p {
+  padding: 15px;
+}
+
+h1 {
+  font-size: 5em;
+}
+
+h3 {
+  font-size: 3em;
+  
+}
+
+.description {
+  text-emphasis: italic;
+}
+
+.post, .user {
+  border: #4ca24f;
+  border-style: dashed;
+  padding: 10px;
+  margin: 10px;
+  max-width: 50%;
+}
+

@@ -1,10 +1,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--Used this to figure out passing data:
 https://stackoverflow.com/questions/20622823/how-to-set-variables-in-a-thymeleaf-fragment -->
-<div th:fragment="navbar(user)">
+<div th:fragment="navbar(user)" class="nav">
     <ul>
         <li><a th:href="@{'/'}" method="GET">Home</a></li>
         <li><a th:href="@{'/logout'}" method="POST">Logout</a></li>
     </ul>
-    <h3>Welcome, <span th:text="${user}"></span>!</h3>
+    <h3 th:if ="${user} != null">Welcome, <span th:text="${user}"></span>!</h3>
 </div>

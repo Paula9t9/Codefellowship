@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log in to Codefellowship</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Log In</title>
 </head>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${user})"></div>
+</header>
 <body>
 <h1>Log in</h1>
 <form action="/login" method="POST">
-    <input name="username" />
-    <input name="password" type="password"/>
+    <input name="username" placeholder="Username"/>
+    <input name="password" type="password" placeholder="Password"/>
     <input type="submit" />
 </form>
 

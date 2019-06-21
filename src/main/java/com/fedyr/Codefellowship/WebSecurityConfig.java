@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 // Allow users to access urls without being loged in
-                .antMatchers("/", "/login","/users", "/signup","/logout_success").permitAll()
+                .antMatchers("/", "/login","/users", "/signup","/logout_success", "/*.css").permitAll()
                 //Must be logged in for anything else
                 .anyRequest().authenticated()
                 .and()

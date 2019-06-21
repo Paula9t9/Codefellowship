@@ -64,6 +64,8 @@ public class CodefellowshipController {
         CfUser friendToFollow = cfUserRepository.findById(id).get();
         CfUser currentUser = cfUserRepository.findByUsername(p.getName());
 
+        m.addAttribute("currentUser", currentUser);
+
         //Friends follow each other
         currentUser.following.add(friendToFollow);
         friendToFollow.followers.add(currentUser);

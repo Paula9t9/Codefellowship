@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Discover</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
+</header>
 <body>
-    <header>
-        <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
-    </header>
 <!--    TODO: Add if to show alternate message if no one left to follow -->
     <div th:replace="fragments/users :: userList(${possibleFollows})"></div>
 </body>
