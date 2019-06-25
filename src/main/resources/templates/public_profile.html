@@ -2,13 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <title>Public Profile</title>
 </head>
 <header>
     <div th:replace="fragments/navbar :: navbar(${currentUser.username})"></div>
 </header>
 <body>
-    <h4><span th:text="${user.username}"></span>'s Profile:</h4>
+    <h3><span th:text="${user.username}"></span>'s Profile:</h3>
     <p>First Name: <span th:text="${user.firstName}"></span></p>
     <p>Last Name: <span th:text="${user.lastName}"></span></p>
     <p>Bio: <span th:text="${user.bio}"></span></p>

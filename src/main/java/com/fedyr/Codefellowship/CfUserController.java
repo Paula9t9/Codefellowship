@@ -37,7 +37,8 @@ public class CfUserController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage(){
+    public String getLoginPage(Model m, Principal p){
+        m.addAttribute("currentUser", null);
         return "login";
     }
 
@@ -47,12 +48,14 @@ public class CfUserController {
     }
 
     @GetMapping("/logout_success")
-    public String getLogoutSuccess(){
+    public String getLogoutSuccess(Model m, Principal p){
+        m.addAttribute("currentUser", null);
         return "logout_success";
     }
 
     @GetMapping("/signup")
-    public String getSignup(){
+    public String getSignup(Model m, Principal p){
+        m.addAttribute("currentUser", null);
         return "signup";
     }
 

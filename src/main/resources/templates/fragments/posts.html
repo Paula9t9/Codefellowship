@@ -1,6 +1,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <ul th:fragment="postList(posts)">
-    <li th:each="post : ${posts}">
+    <li th:each="post : ${posts}" class="post">
         <p>Created by: [[${post.createdBy.username}]]</p>
         <p>Posted on: [[${post.createdAt}]]</p>
         <p>[[${post.body}]]</p>

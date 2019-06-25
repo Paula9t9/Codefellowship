@@ -2,10 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Logout Success</title>
 </head>
+<header>
+    <div th:replace="fragments/navbar :: navbar(${null})"></div>
+</header>
 <body>
-<h1>You have been successfully logged out</h1>
-<p>You can click <a th:href="@{'/'}" method="GET">here</a> to return to the home page.</p>
+    <h1>You have been successfully logged out</h1>
+    <p>You can click <a th:href="@{'/'}" method="GET">here</a> to return to the home page.</p>
 </body>
 </html>
